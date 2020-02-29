@@ -14,7 +14,7 @@ import lombok.Data;
 @Entity
 @Table(name = "user")
 @Data
-public class User {
+public class Users {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class User {
 	private String email;
 
 	@Column(name = "phone")
-	private int phone;
+	private String phone;
 
 	@Column(name = "birth_date")
 	private String birthDate;
@@ -45,5 +45,37 @@ public class User {
 	@JoinColumn(name = "role_id")
 	private Role role;
 
+	public Users(String username, String name, String password, String email, String phone, String birthDate,
+			String infoJson, Role role) {
+		super();
+		this.username = username;
+		this.name = name;
+		this.password = password;
+		this.email = email;
+		this.phone = phone;
+		this.birthDate = birthDate;
+		this.infoJson = infoJson;
+		this.role = role;
+	}
+
+	public Users(int id, String username, String name, String password, String email, String phone, String birthDate,
+			String infoJson, Role role) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.name = name;
+		this.password = password;
+		this.email = email;
+		this.phone = phone;
+		this.birthDate = birthDate;
+		this.infoJson = infoJson;
+		this.role = role;
+	}
+
+	public Users() {
+		super();
+	}
+
+	
 
 }

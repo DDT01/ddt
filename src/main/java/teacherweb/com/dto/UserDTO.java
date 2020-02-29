@@ -9,14 +9,15 @@ public class UserDTO {
     private String name;
     private String password;
     private String email;
-    private int phone;
+    private String phone;
     private String birthDate;
     private String infoJson;
     private RoleDTO roleDTO;
+    
 	public UserDTO() {
 		super();
 	}
-	public UserDTO(int id, String username, String name, String password, String email, int phone, String birthDate,
+	public UserDTO(int id, String username, String name, String password, String email, String phone, String birthDate,
 			String infoJson, RoleDTO roleDTO) {
 		super();
 		this.id = id;
@@ -29,7 +30,7 @@ public class UserDTO {
 		this.infoJson = infoJson;
 		this.roleDTO = roleDTO;
 	}
-	public UserDTO(String username, String name, String password, String email, int phone, String birthDate,
+	public UserDTO(String username, String name, String password, String email, String phone, String birthDate,
 			String infoJson) {
 		super();
 		this.username = username;

@@ -1,16 +1,16 @@
 package teacherweb.com.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import teacherweb.com.entity.User;
+import teacherweb.com.entity.Users;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-//    User findUserByUsername(String username);
+public interface UserRepository extends JpaRepository<Users, Integer> {
 
-    @Query("select u from User u where u.username = :username")
-    User findUserByUsername(@Param("username") String username);
+	Users findByUsername(String username);
+	
+	Users findByUsernameAndPassword(String userName, String password);
+	
+	Users findByIdAndUsername(int id, String userName);
 }
