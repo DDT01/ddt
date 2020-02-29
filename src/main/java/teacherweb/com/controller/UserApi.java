@@ -28,4 +28,9 @@ public class UserApi {
 	public ResponseEntity<?> getListUsers(){
 		return ResponseEntity.ok(userService.getListUsers());
 	}
+    
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+	public ResponseEntity<?> register(@RequestBody User user){
+		return ResponseEntity.ok(userService.getListUsers());
+	}
 }

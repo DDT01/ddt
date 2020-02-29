@@ -8,4 +8,5 @@ public interface UserService {
 	
     User findUserByUserName(String username);
     List<User> getListUsers();
+    boolean register(User user);
 }
