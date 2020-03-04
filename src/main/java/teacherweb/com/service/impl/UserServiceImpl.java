@@ -1,6 +1,7 @@
 package teacherweb.com.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.dozer.DozerBeanMapper;
@@ -90,6 +91,11 @@ public class UserServiceImpl implements UserService {
 		Users userEntity = dozerBeanMapper.map(user, Users.class);
 		userRepository.delete(userEntity);
 		return true;
+	}
+
+	@Override
+	public Users findbyId(int id){
+		return userRepository.findById(id);
 	}
 
 }

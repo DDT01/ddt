@@ -52,9 +52,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		// Disable crsf for url /**
 		http.csrf().ignoringAntMatchers("/**").disable();
-		http.authorizeRequests().antMatchers("/login/**").permitAll();
-		http.authorizeRequests().antMatchers("/account/register").permitAll();
-		http.authorizeRequests().antMatchers("/account/login").permitAll();
+		http.authorizeRequests().antMatchers("/login/**").permitAll()
+		.antMatchers("/account/register").permitAll()
+		.antMatchers("/account/login").permitAll()
+		.antMatchers("/lessonplan/**").permitAll();
+
 
 		http.antMatcher("/**").httpBasic().authenticationEntryPoint(restServicesEntryPoint()).and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()

@@ -1,20 +1,17 @@
 package teacherweb.com.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Data;
+
+import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @Table(name = "user")
 @Data
-public class Users {
+public class Users implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,6 +41,8 @@ public class Users {
 	@ManyToOne
 	@JoinColumn(name = "role_id")
 	private Role role;
+
+
 
 	public Users(String username, String name, String password, String email, String phone, String birthDate,
 			String infoJson, Role role) {
